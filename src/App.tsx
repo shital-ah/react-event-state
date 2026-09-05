@@ -8,6 +8,9 @@ import Users from './Users'
 // import Cart from './cart'
 // import Counter from './counter'
 
+
+import Posts from './post';
+
 const UserList = Users as unknown as ComponentType<{ userDataPromise: Promise<unknown> }>
 
 
@@ -18,7 +21,11 @@ const userDataPromise =async() => {
 }
 
 
-
+const postDataPromise =async() => {
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+  const data = await res.json()
+  return data
+}
 
 function App() {
 
@@ -37,6 +44,10 @@ function App() {
     <Suspense fallback ={<div>Loading...</div>}>
     <UserList userDataPromise={userDataPromise()} />
 
+    </Suspense>
+
+    <Suspense fallback ={<p>Loading postedData...</p>}>
+    <Posts postDataPromise={postDataPromise()}></Posts>
     </Suspense>
 
 
