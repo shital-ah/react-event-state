@@ -10,6 +10,7 @@ import Users from './Users'
 
 
 import Posts from './post';
+import ToDos from './ToDos';
 
 const UserList = Users as unknown as ComponentType<{ userDataPromise: Promise<unknown> }>
 
@@ -40,6 +41,8 @@ function App() {
 
   return (
     <>
+
+    <ToDos></ToDos>
    
     <Suspense fallback ={<div>Loading...</div>}>
     <UserList userDataPromise={userDataPromise()} />
