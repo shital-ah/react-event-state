@@ -1,8 +1,9 @@
 
 
 import './App.css'
+import Batter from './baters'
 // import Cart from './cart'
-import Counter from './counter'
+// import Counter from './counter'
 
 function App() {
 
@@ -20,7 +21,8 @@ function App() {
 
     {/* <Cart ></Cart> */}
 
-    <Counter></Counter>
+    {/* <Counter></Counter> */}
+    <Batter></Batter>
 
 
 
