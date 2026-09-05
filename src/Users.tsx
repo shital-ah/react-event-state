@@ -1,6 +1,12 @@
 import { use } from 'react'
+import UserCard from './userCard';
 
-function Users({ userDataPromise }: { userDataPromise: Promise<unknown> }) {
+type User = {
+    id: number;
+    name: string;
+};
+
+function Users({ userDataPromise }: { userDataPromise: Promise<User[]> }) {
 
         const users = use(userDataPromise);
 
@@ -9,7 +15,9 @@ function Users({ userDataPromise }: { userDataPromise: Promise<unknown> }) {
     return(
         <div>
             <h2>Users: {users.length}</h2>
-            {/* <p>List of users</p> */}
+            {
+                users.map(user => <UserCard user={user} />)
+            }
         </div>
     )
 }
